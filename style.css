@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+main{
+    max-width: 1440px;
+    margin: auto;
+    height: 100vh;
+}
+.espacio{
+    height: 30px;
+}
