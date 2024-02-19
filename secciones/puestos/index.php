@@ -1,3 +1,9 @@
+<?php
+include("../../db.php");
+$sentencia = $conexion->prepare("SELECT * FROM puestos");
+$sentencia->execute();
+$lista_puestos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+?>
 <?php include("../../templates/header.php") ?>
 
 <div class="card">
@@ -15,14 +21,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="">
-                    <td>1</td>
-                    <td>Programador jr</td>
-                    <td>
-                        <a name="" id="" class="btn btn-danger" href="editar.php" role="button">Editar</a>
+                <?php foreach ($lista_puestos as $key) { ?>
+                    <tr class="">
+                        <td>
+                            <?php echo $key['id'] ?>
+                        </td>
+                        <td>
+                            <?php echo $key['puesto'] ?>
+                        </td>
+                        <td>
+                            <a name="" id="" class="btn btn-danger" href="editar.php" role="button">Editar</a>
+                        </td>
+                    </tr>
+                <?php } ?>
 
-                    </td>
-                </tr>
 
             </tbody>
         </table>

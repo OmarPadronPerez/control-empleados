@@ -1,3 +1,10 @@
+<?php
+include("../../db.php");
+$sentencia = $conexion->prepare("SELECT * FROM usuario");
+$sentencia->execute();
+$lista_usuarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <?php include("../../templates/header.php") ?>
 
 <div class="card">
@@ -16,17 +23,18 @@
                 </tr>
             </thead>
             <tbody>
+            <?php foreach ($lista_usuarios as $key) { ?>
                 <tr class="">
-                    <td>1</td>
-                    <td>Javier Omar Padrón Pérez</td>
-                    <td>Programador</td>
+                    <td><?php echo $key['id']  ?></td>
+                    <td><?php echo $key['nombre'] ?></td>
+                    <td><?php echo $key['correo'] ?></td>
                     <td>
                         <a name="" id="" class="btn btn-primary" href="editar.php" role="button">Editar</a>
                         <button type="button" class="btn btn-danger">Borrar</button>
 
                     </td>
                 </tr>
-
+                <?php }?>
             </tbody>
         </table>
 
