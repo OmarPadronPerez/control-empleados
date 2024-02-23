@@ -1,5 +1,3 @@
 <?php include("templates/header.php") ?>
-
-<p>holis</p>
-
+<h1>index.php</h1>
 <?php include("templates/footer.php") ?>

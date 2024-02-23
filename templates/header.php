@@ -1,5 +1,9 @@
 <?php
-$url_base = "http://localhost/ejercicios/empleados/";
+$url_base = "http://localhost/ejercicios/empleados";
+session_start();
+if (!isset($_SESSION["id"])) {
+    header("Location:$url_base/login.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -14,7 +18,7 @@ $url_base = "http://localhost/ejercicios/empleados/";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-    <link rel="stylesheet" href="<?php echo $url_base?>style.css">
+    <link rel="stylesheet" href="<?php echo $url_base ?>style.css">
 </head>
 
 <body>
@@ -30,16 +34,16 @@ $url_base = "http://localhost/ejercicios/empleados/";
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $url_base; ?>secciones/empleados">Empleados</a>
+                            <a class="nav-link" href="<?php echo $url_base; ?>/secciones/empleados">Empleados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $url_base; ?>secciones/puestos">Puestos</a>
+                            <a class="nav-link" href="<?php echo $url_base; ?>/secciones/puestos">Puestos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $url_base; ?>secciones/usuarios">Usuarios</a>
+                            <a class="nav-link" href="<?php echo $url_base; ?>/secciones/usuarios">Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $url_base; ?>cerrar.php">cerrar sesion</a>
+                            <a class="nav-link" href="<?php echo $url_base; ?>/cerrar.php">cerrar sesion</a>
                         </li>
                     </ul>
                 </div>

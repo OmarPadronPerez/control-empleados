@@ -1,7 +1,6 @@
 <?php
 include("../../db.php");
 if ($_POST) {
-    print_r($_POST);
     //recoleccion de post
     $nombre_puesto = (isset($_POST["puesto"])) ? $_POST["puesto"] : "";
     //incertar datos en base

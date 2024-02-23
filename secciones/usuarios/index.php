@@ -29,9 +29,7 @@ $lista_usuarios = $sentencia->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo $key['nombre'] ?></td>
                     <td><?php echo $key['correo'] ?></td>
                     <td>
-                        <a name="" id="" class="btn btn-primary" href="editar.php" role="button">Editar</a>
-                        <button type="button" class="btn btn-danger">Borrar</button>
-
+                        <a name="" id="" class="btn btn-primary" href="editar.php?txtID=<?php echo $key['id'] ?>" role="button">Editar</a>
                     </td>
                 </tr>
                 <?php }?>

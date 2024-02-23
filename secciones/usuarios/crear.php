@@ -1,25 +1,24 @@
 <?php
 include("../../db.php");
 if ($_POST) {
-    $nombre=$_POST["nombre"];
-    $correo=$_POST["correo"];
+    //print_r($_POST);
+    $nombre = strtoupper($_POST["nombre"]);
+    $correo = $_POST["correo"];
 
     //incertar datos en base
     $sentencia = $conexion->prepare("INSERT INTO usuario(id,nombre,password,correo)VALUES(null, :nombre,:pass,:correo)");
 
     //encriptar contrase;as
-    $passHash=password_hash($_POST["pass"], PASSWORD_DEFAULT);
+    $passHash = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     //asignando valores del post
-    $sentencia->bindParam(":nombre",$nombre);
-    $sentencia->bindParam(":pass",$passHash);
-    $sentencia->bindParam(":correo",$correo);
-    $respuesta=$sentencia->execute();
-    if($respuesta){
-        header("Location:index.php") ;
+    $sentencia->bindParam(":nombre", $nombre);
+    $sentencia->bindParam(":pass", $passHash);
+    $sentencia->bindParam(":correo", $correo);
+    $respuesta = $sentencia->execute();
+    if ($respuesta) {
+        header("Location:index.php");
     }
-    
 }
-
 
 ?>
 
